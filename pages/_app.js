@@ -21,6 +21,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'highlight.js/styles/pojoaque.css'
 import '../styles/index.scss'
 import ThemeProvider from "../providers/ThemeProvider";
+import "react-toggle/style.css"
 
 
 // eslint-disable-next-line react/display-name
