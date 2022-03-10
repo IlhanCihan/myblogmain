@@ -24,14 +24,10 @@ import ThemeProvider from "../providers/ThemeProvider";
 import "react-toggle/style.css"
 
 
-// export default ({Component, pageProps}) =>
-//     <ThemeProvider>
-//       <Component {...pageProps} />
-//     </ThemeProvider>
-
-
-export default function ({Component, pageProps}) {
+// eslint-disable-next-line react/display-name
+export default ({Component, pageProps}) =>
     <ThemeProvider>
-        <Component {...pageProps} />
+      <Component {...pageProps} />
     </ThemeProvider>
-}
+
+
