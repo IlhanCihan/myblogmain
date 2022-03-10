@@ -23,7 +23,15 @@ import '../styles/index.scss'
 import ThemeProvider from "../providers/ThemeProvider";
 import "react-toggle/style.css"
 
-export default ({Component, pageProps}) =>
+
+// export default ({Component, pageProps}) =>
+//     <ThemeProvider>
+//       <Component {...pageProps} />
+//     </ThemeProvider>
+
+
+export default function ({Component, pageProps}) {
     <ThemeProvider>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
     </ThemeProvider>
+}
