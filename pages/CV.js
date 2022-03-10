@@ -2,7 +2,7 @@ import PageLayout from "../components/Layout";
 import HighlightCode from "../components/DesignCode";
 import {createRef, useEffect} from "react";
 import highlight from "highlight.js";
-import {findDOMNode} from "react-dom";
+
 import {Carousel} from "react-bootstrap";
 
 export default function CV() {
