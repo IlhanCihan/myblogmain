@@ -1,17 +1,39 @@
-import {Navbar, Container, Nav,NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
-import MainFooter from "./MainFooter";
-import MainNavbar from "./MainNavbar";
+import { Container } from 'react-bootstrap';
+import Head from 'next/head';
+import Navbar from './Navbar';
+import {useTheme} from "../providers/ThemeProvider";
 
-const Layout = ({children, className}) => {
+
+export default function PageLayout({children, className}) {
+    const { theme, toggleTheme } = useTheme();
     return (
-        <Container>
-            <MainNavbar />
-            <div className={`page-wrapper ${className}`}>
-                {children}
-            </div>
-            <MainFooter/>
-        </Container>
+        <div className={theme.type}>
+            <Head>
+                <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+            </Head>
+            <Container>
+                <Navbar
+                    theme={theme}
+                    toggleTheme={toggleTheme}
+                />
+                <div className={`page-wrapper ${className}`}>
+                    {children}
+                </div>
+                <footer className="page-footer">
+                    <div>
+                        <a href="#">© 2022</a>
+                        <a href="#"> Cihan Ilhan</a>
+                    </div>
+                </footer>
+            </Container>
+            <style jsx global>{`
+        html, body {
+          background: ${theme.background};
+          color: ${theme.fontColor};
+          transition: color 0.2s ease-out 0s, background 0.2s ease-out 0s;
+        }
+      `}
+            </style>
+        </div>
     )
 }
-
-export default Layout;

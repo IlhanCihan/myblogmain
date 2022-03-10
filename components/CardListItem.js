@@ -1,7 +1,7 @@
 import {Card} from "react-bootstrap";
 import React from "react";
 
-const CardListItem = () => {
+const CardListItem = (props) => {
     return (
         <div>
             {/* CardListItem STARTS */}
@@ -16,13 +16,13 @@ const CardListItem = () => {
                             width="50px"
                             alt="avatar"/>
                         <div>
-                            <Card.Title className="font-weight-bold mb-1">Placeholder Author</Card.Title>
-                            <Card.Text className="card-date">Placeholder Date</Card.Text>
+                            <Card.Title className="font-weight-bold mb-1">Might add categories here soon</Card.Title>
+                            <Card.Text className="card-date">{props.date}</Card.Text>
                         </div>
                     </Card.Header>
                     <Card.Body>
-                        <Card.Title className="card-main-title">Placeholder Title</Card.Title>
-                        <Card.Text>Placehodler Subtitle</Card.Text>
+                        <Card.Title className="card-main-title">{props.title}</Card.Title>
+                        <Card.Text>{props.subtitle}</Card.Text>
                     </Card.Body>
                 </div>
                 <a href="#" className="card-button">

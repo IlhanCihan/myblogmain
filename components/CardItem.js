@@ -1,7 +1,10 @@
 import {Card} from "react-bootstrap";
 import React from "react";
+import Link from 'next/link';
+import {urlFor} from "../lib/api";
 
-const CardItem = () => {
+
+const CardItem = (props) => {
     return (
         <div>
             <Card className={`fj-card`}>
@@ -15,24 +18,35 @@ const CardItem = () => {
                             width="50px"
                             alt="avatar"/>
                         <div>
-                            <Card.Title className="font-weight-bold mb-1">Placeholder Author</Card.Title>
-                            <Card.Text className="card-date">Placeholder Date</Card.Text>
+                            <Card.Title className="font-weight-bold mb-1">Might add categories here soon</Card.Title>
+                            <Card.Text className="card-date">{props.date}</Card.Text>
                         </div>
                     </Card.Header>
                     <div className="view overlay">
                         <Card.Img
-                            src='https://via.placeholder.com/250'
+
+                            src={
+                                urlFor(props.image)
+                                    .height(300)
+                                    .crop('center')
+                                    .fit('clip')
+                                    .url()
+                            }
                             alt="Card image cap"
                         />
                     </div>
                     <Card.Body>
-                        <Card.Title className="card-main-title">Placeholder Title</Card.Title>
-                        <Card.Text>Placehodler Subtitle</Card.Text>
+                        <Card.Title className="card-main-title">{props.title}</Card.Title>
+                        <Card.Text>{props.subtitle}</Card.Text>
                     </Card.Body>
                 </div>
-                <a className="card-button">
-                    Read More
-                </a>
+                {props.link &&
+                <Link {...props.link}>
+                    <a className="card-button">
+                        Read More
+                    </a>
+                </Link>
+                }
             </Card>
         </div>
     )
